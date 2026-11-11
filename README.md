@@ -31,5 +31,6 @@
 - `.gitignore` — исключения (пароли, ключи, рабочий файл SQLite)
 - `schemes/` — логическая схема сети (`logical-topology.drawio`)
 - `docs/` — таблица адресации и портов (`addressing-table.xlsx`), черновик плана офиса
-- `configs/` — настройки RTR и узлов
+- `configs/` — настройки RTR, узлов, Docker и Nginx
+- `docker/` — учебный `compose.yml` для тестового Nginx
 - `evidence/` — скриншоты проверок
