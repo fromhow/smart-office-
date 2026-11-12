@@ -33,4 +33,5 @@
 - `docs/` — таблица адресации и портов (`addressing-table.xlsx`), черновик плана офиса
 - `configs/` — настройки RTR, узлов, Docker и Nginx
 - `docker/` — учебный `compose.yml` для тестового Nginx
+- `practice4/` — приёмник показаний (CTRL), Node-RED (IOT), поток с датчиками
 - `evidence/` — скриншоты проверок
