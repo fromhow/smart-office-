@@ -34,4 +34,5 @@
 - `configs/` — настройки RTR, узлов, Docker и Nginx
 - `docker/` — учебный `compose.yml` для тестового Nginx
 - `practice4/` — приёмник показаний (CTRL), Node-RED (IOT), поток с датчиками
+- `practice5/` — приёмник v2 (CTRL), поток Node-RED с вентилятором FAN-01
 - `evidence/` — скриншоты проверок
