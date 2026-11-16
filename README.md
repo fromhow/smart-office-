@@ -35,4 +35,5 @@
 - `docker/` — учебный `compose.yml` для тестового Nginx
 - `practice4/` — приёмник показаний (CTRL), Node-RED (IOT), поток с датчиками
 - `practice5/` — приёмник v2 (CTRL), поток Node-RED с вентилятором FAN-01
+- `practice6/` — хранилище SQLite на DB (сервис, база, интерфейс), поток Node-RED с отправкой на CTRL и DB
 - `evidence/` — скриншоты проверок
