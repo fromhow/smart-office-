@@ -30,3 +30,6 @@ Thumbs.db
 *.swp
 *.tmp
 ~$*
+
+# Конфигурация Grafana с паролем SMTP
+grafana.ini
