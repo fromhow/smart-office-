@@ -137,25 +137,6 @@ table.t td.m{font-family:var(--fm);font-size:22px;color:#cfe}
 .edit-toggle{position:fixed;bottom:14px;left:14px;font:500 15px var(--fm);padding:8px 14px;border-radius:10px;border:1px solid var(--cy);background:rgba(7,11,22,.9);color:var(--cy);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:10001}
 .edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}
 body.editing .ed{outline:1.5px dashed var(--mg);outline-offset:4px;cursor:text}
-
-/* ===== ПОДСКАЗКИ ===== */
-.helpbtn{position:absolute;right:80px;top:92px;z-index:60;font:600 22px var(--fm);color:#06110f;background:var(--cy);border:0;border-radius:30px;padding:8px 22px 8px 16px;cursor:pointer;display:flex;gap:10px;align-items:center;letter-spacing:.04em;box-shadow:0 0 0 0 rgba(0,255,204,.6)}
-.helpbtn b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#06110f;color:var(--cy);font-size:22px}
-.helpbtn.pulse{animation:hp 1.8s infinite}
-@keyframes hp{0%{box-shadow:0 0 0 0 rgba(0,255,204,.65)}70%{box-shadow:0 0 0 22px rgba(0,255,204,0)}100%{box-shadow:0 0 0 0 rgba(0,255,204,0)}}
-.help{position:absolute;inset:0;z-index:4000;background:rgba(3,6,14,.9);display:none;align-items:center;justify-content:center}
-.help.show{display:flex}
-.help .card{width:1340px;max-height:960px;overflow:auto;background:#0b1224;border:2px solid var(--cy);border-radius:26px;padding:40px 52px;box-shadow:0 0 80px rgba(0,255,204,.2)}
-.help h3{font:800 46px var(--fd);margin-bottom:6px}.help h3 em{font-style:normal;color:var(--cy)}
-.help .k{font:600 21px var(--fm);color:var(--mg);letter-spacing:.14em;text-transform:uppercase;margin:24px 0 8px}
-.help p,.help li{font:400 30px/1.4 var(--fb);color:#dfe8fb}
-.help ol,.help ul{padding-left:38px}.help li{margin:7px 0}
-.help li b,.help p b{color:var(--cy);font-weight:600}
-.help .say{border-left:4px solid var(--mg);padding-left:22px;color:#ffd6f1;font-style:italic}
-.help .legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:6px}
-.help .legend span{font:400 24px var(--fm);color:#cfe;display:flex;align-items:center;gap:10px}
-.help .legend i{width:18px;height:18px;border-radius:50%;display:inline-block}
-.help .esc{margin-top:26px;font:400 22px var(--fm);color:var(--dm)}
 </style>
 </head>
 <body>
@@ -459,7 +440,7 @@ function packet(pid,color,fail,delay=0){
    ОТРИСОВКА
    ============================================================ */
 function ctlHTML(){return `
- <div class="ctl-h">Пульт · жмите <span class="clk"></span></div>
+ <div class="ctl-h">Пульт модели <span class="clk"></span></div>
  <label>Температура TEMP-01 <b data-v="temp"></b></label>
  <input type="range" min="15" max="45" step="0.5" data-k="temp" aria-label="Температура">
  <label>HUM-01, влажность <b data-v="hum"></b></label>
@@ -470,7 +451,7 @@ function ctlHTML(){return `
  <div class="sw" data-tg="db"><i></i><div>DB-01: SQLite :8081</div></div>
  <div class="seg">Время: <button data-sp="1">×1</button><button data-sp="5">×5</button><button data-sp="10">×10</button></div>
  <div class="presets"><button data-pre="hot">35 °C</button><button data-pre="cool">25 °C</button><button data-pre="reset">Сброс</button></div>
- <div class="hint">клавиши 1–4 – вкл/выкл узлов, + / − температура, H – подсказка</div>`}
+ <div class="hint">клавиши 1–4 – вкл/выкл узлов, + / − температура</div>`}
 function syncCtl(){
   $$('[data-ctl]').forEach(c=>{
     $$('[data-k]',c).forEach(i=>{if(document.activeElement!==i)i.value=S[i.dataset.k]});
@@ -663,8 +644,7 @@ class SlidePresentation{
     if(e.target.isContentEditable||e.target.tagName==='TEXTAREA')return;
     if(e.ctrlKey||e.metaKey||e.altKey)return;
     const k=e.key;
-    if(k==='Escape'){$('#lb').classList.remove('show');closeHelp();return}
-    if(k==='h'||k==='H'||k==='р'||k==='Р'){toggleHelp();return}
+    if(k==='Escape'){$('#lb').classList.remove('show');return}
     if(['ArrowRight','PageDown',' ','Enter'].includes(k)){e.preventDefault();this.go(this.i+1)}
     else if(['ArrowLeft','PageUp','Backspace'].includes(k)){e.preventDefault();this.go(this.i-1)}
     else if(k==='Home')this.go(0);else if(k==='End')this.go(this.slides.length-1);
@@ -678,48 +658,9 @@ class SlidePresentation{
     $$('#dots i').forEach((d,i)=>d.classList.toggle('on',i===cur));
     $('#cnt').textContent=(cur+1)+' / '+this.slides.length;
     document.activeElement&&document.activeElement.blur&&document.activeElement.blur();
-    render();updateHelp();
+    render();
   }
 }
-
-
-/* ============================================================
-   ПОДСКАЗКИ: что нажимать на каждом слайде (клавиша H или кнопка «?»)
-   ============================================================ */
-const LEG='<div class="legend"><span><i style="background:#00ffcc"></i>показание датчика (каждые 5 с)</span><span><i style="background:#ffb224"></i>команда вентилятору</span><span><i style="background:#a78bfa"></i>Prometheus опрашивает CTRL</span><span><i style="background:#ff4fc3"></i>Grafana читает Prometheus</span><span><i style="background:#ff4d6d"></i>красная точка – не дошло</span></div>';
-const HELP=[
- {t:'Титульный слайд',w:'Название проекта и схема из четырёх узлов.',d:['Ничего нажимать не нужно. Листайте стрелкой →.'],s:'Здравствуйте. Меня зовут Терехов Дмитрий, группа 54-15. Мой проект – «Умный офис»: мониторинг и автоматическое управление серверной комнатой.'},
- {t:'Задача',w:'Слева четыре задачи, справа таблица виртуальных машин с адресами.',d:['Ничего нажимать не нужно.'],s:'Нужно было построить на стенде GNS3 четыре части: датчики, приём, автоматику и контроль. Справа машины: IOT – датчики, CTRL – приёмник, DB – база, MON – мониторинг, WIN – рабочее место.'},
- {t:'Схема стенда',w:'Живая схема. Точки бегут по линиям, как пакеты по сети.'+LEG,d:['В правой панели <b>«Пульт»</b> выключите <b>CTRL-01</b> (или нажмите <b>3</b>): точки к CTRL краснеют и не доходят, а к DB продолжают идти.','Включите CTRL обратно. Так же можно кликать по узлам IOT, CTRL, DB прямо на схеме.','Ползунок температуры и кнопки времени ×5 и ×10 здесь тоже работают.'],s:'Node-RED шлёт показание сразу в два места: на CTRL и на DB. Поэтому, если остановить приёмник, база всё равно пишет. Prometheus сам опрашивает CTRL, а Grafana берёт данные у Prometheus.'},
- {t:'Датчики в Node-RED',w:'Слева узлы потока, как в настоящем редакторе. Справа окно Debug, там ответы CTRL и DB.',d:['Поменяйте число <b>в поле температуры</b>, например на 35: в Debug видно, что уходит такой JSON.','Кликните по тумблеру <b>⏱</b> на узле «TEMP-01 каждые 5 с»: узел отключается, ответы в Debug пропадают. Это то же, что Disabled в Node-RED.'],s:'Каждые 5 секунд узел собирает JSON: имя датчика, зону, единицу, значение и время. Отправляет POST-запросом на /api/readings. CTRL отвечает «ok», база отвечает «stored».'},
- {t:'Вентилятор',w:'Шкала температуры с порогом 30 °C и журнал событий вентилятора.',d:['Нажмите <b>«35 °C»</b>: вентилятор ON.','Нажмите <b>«25 °C»</b>: вентилятор OFF.','Тяните ползунок возле 30: на <b>30,0</b> вентилятор выключен, на <b>30,5</b> включается. Порог строгий: больше 30.'],s:'Правило такое: температура больше 30 – команда ON, 30 и меньше – OFF. Команда уходит и на CTRL, и в базу. Режим всегда авто.'},
- {t:'SQLite',w:'Счётчики записей и таблица последних записей базы.',d:['Выключите <b>DB-01</b> (клавиша <b>4</b>), подождите 10–15 секунд: растёт счётчик «Не дошло».','Включите DB обратно: счётчик «Всего записей» снова растёт.'],s:'База лежит на DB-01 в SQLite, это один файл. В двух таблицах: измерения и события вентилятора. База получает данные напрямую от Node-RED, поэтому не зависит от CTRL.'},
- {t:'Prometheus и Grafana',w:'Макет панели Grafana: доступность, температура, влажность, вентилятор, возраст показаний.',d:['Выключите <b>CTRL-01</b> (клавиша <b>3</b>): панели показывают «НЕДОСТУПНО» и «Нет данных».','Включите CTRL: данные возвращаются через 5–10 секунд.'],s:'Prometheus каждые 5 секунд забирает метрики у CTRL, Grafana рисует панель. Когда CTRL остановлен, панель честно пишет «Нет данных», а не показывает старые цифры.'},
- {t:'Оповещения',w:'Три правила Grafana и почтовый ящик администратора справа.',d:['Поставьте время <b>×10</b>, чтобы не ждать.','Выключите <b>TEMP-01</b> (клавиша <b>1</b>) на 20+ секунд модельного времени: правило TEMP-01 станет Firing и придёт письмо FIRING.','Включите TEMP-01: правило вернётся в Normal, придёт письмо RESOLVED.','Выключите <b>CTRL-01</b> (клавиша 3): сработает «CTRL недоступен».'],s:'Правила датчиков смотрят возраст показания: больше 20 секунд – тревога. Они срабатывают, только пока CTRL доступен. Если остановлен сам CTRL, тревога одна: «CTRL недоступен». Письма идут через SMTP.'},
- {t:'Испытания',w:'Таблица проверенных сценариев и ошибки, найденные по ходу работы. Снизу миниатюры настоящих скриншотов со стенда.',d:['Кликните по любой <b>миниатюре</b>: скриншот откроется на весь экран.','Esc или клик закрывает его.'],s:'Все эти сценарии я проверил на настоящем стенде 19 ноября. Вот скриншоты. Ошибки по ходу работы были, например DNS на MON-01 и закомментированные параметры SMTP. Все найдены и исправлены.'},
- {t:'Итоги',w:'Что получил заказчик и ссылка на репозиторий.',d:['Ничего нажимать не нужно.'],s:'Работает вся цепочка от датчика до письма администратору. Заказчику передаются репозиторий с README, инструкция, журнал работ и испытаний и 116 скриншотов. Спасибо за внимание, готов ответить на вопросы.'}
-];
-let helpOpen=false;
-(function(){
-  const st=$('#deckStage');
-  const b=document.createElement('button');b.className='helpbtn';b.id='helpBtn';b.innerHTML='<b>?</b> ЧТО НАЖИМАТЬ · H';
-  let seen=false;try{seen=localStorage.getItem('helpSeen')==='1'}catch(e){}
-  if(!seen)b.classList.add('pulse');
-  b.onclick=toggleHelp;st.appendChild(b);
-  const o=document.createElement('div');o.className='help';o.id='help';o.onclick=e=>{if(e.target===o)closeHelp()};st.appendChild(o);
-})();
-function updateHelp(){
-  const o=$('#help');if(!o)return;
-  const h=HELP[cur];
-  o.innerHTML=`<div class="card"><h3>Слайд ${cur+1}. <em>${h.t}</em></h3>
-   <div class="k">Что на слайде</div><p>${h.w}</p>
-   <div class="k">Что сделать</div><ol>${h.d.map(x=>'<li>'+x+'</li>').join('')}</ol>
-   <div class="k">Что сказать</div><p class="say">${h.s}</p>
-   <div class="esc">H или Esc – закрыть · ← → – соседние слайды</div></div>`;
-}
-function openHelp(){helpOpen=true;updateHelp();$('#help').classList.add('show');$('#helpBtn').classList.remove('pulse');try{localStorage.setItem('helpSeen','1')}catch(e){}}
-function closeHelp(){helpOpen=false;const o=$('#help');if(o)o.classList.remove('show')}
-function toggleHelp(){helpOpen?closeHelp():openHelp()}
 
 /* ---- запуск ---- */
 $$('[data-ctl]').forEach(c=>c.innerHTML=ctlHTML());
