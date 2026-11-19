@@ -1,6 +1,6 @@
 # Вентилятор FAN-01 в Node-RED
 
-Файлы лежат в каталоге `practice5/`: приёмник версии 2 (`ctrl/receiver.js`, `ctrl/compose.yml`) и поток Node-RED (`node-red/fan-flow.json`).
+Итоговые файлы лежат в `ctrl/` (приёмник и Compose) и `iot/flows.json` (поток Node-RED с вентилятором). Версия приёмника для этой работы (v2) сохранена в истории Git.
 
 ## CTRL-01: приёмник v2
 

@@ -1,0 +1,593 @@
+[
+    {
+        "id": "80b53015d5494bcc",
+        "type": "tab",
+        "label": "Датчики и вентилятор",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6a34c63ec750cc5e",
+        "type": "inject",
+        "z": "80b53015d5494bcc",
+        "name": "TEMP-01 каждые 5 с",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "7112f952471bd159"
+            ]
+        ]
+    },
+    {
+        "id": "7112f952471bd159",
+        "type": "change",
+        "z": "80b53015d5494bcc",
+        "name": "Показание температуры",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.sensor_id",
+                "pt": "msg",
+                "to": "TEMP-01",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.zone",
+                "pt": "msg",
+                "to": "server_room",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.unit",
+                "pt": "msg",
+                "to": "C",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.value",
+                "pt": "msg",
+                "to": "35",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload.timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 80,
+        "wires": [
+            [
+                "31980ba0ec11c04c",
+                "3af5fdad8643681a",
+                "57d7e56bff450f39"
+            ]
+        ]
+    },
+    {
+        "id": "31980ba0ec11c04c",
+        "type": "http request",
+        "z": "80b53015d5494bcc",
+        "name": "TEMP на CTRL",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.11:8080/api/readings",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 80,
+        "wires": [
+            [
+                "a0f34d923c3f8944"
+            ]
+        ]
+    },
+    {
+        "id": "a0f34d923c3f8944",
+        "type": "debug",
+        "z": "80b53015d5494bcc",
+        "name": "Ответ TEMP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 890,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d0f2341198f66068",
+        "type": "inject",
+        "z": "80b53015d5494bcc",
+        "name": "HUM-01 каждые 5 с",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "b7c439e4027bd41d"
+            ]
+        ]
+    },
+    {
+        "id": "b7c439e4027bd41d",
+        "type": "change",
+        "z": "80b53015d5494bcc",
+        "name": "Показание влажности",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.sensor_id",
+                "pt": "msg",
+                "to": "HUM-01",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.zone",
+                "pt": "msg",
+                "to": "work_area",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.unit",
+                "pt": "msg",
+                "to": "%",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.value",
+                "pt": "msg",
+                "to": "$round($random()*30+40,1)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "54ec1bc2a8888c34",
+                "e8bb21b6b98b2d18"
+            ]
+        ]
+    },
+    {
+        "id": "54ec1bc2a8888c34",
+        "type": "http request",
+        "z": "80b53015d5494bcc",
+        "name": "HUM на CTRL",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.11:8080/api/readings",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 160,
+        "wires": [
+            [
+                "0f04c8e410532b11"
+            ]
+        ]
+    },
+    {
+        "id": "0f04c8e410532b11",
+        "type": "debug",
+        "z": "80b53015d5494bcc",
+        "name": "Ответ HUM",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 890,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "57d7e56bff450f39",
+        "type": "switch",
+        "z": "80b53015d5494bcc",
+        "name": "TEMP-01 > 30 ?",
+        "property": "payload.value",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "30",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 420,
+        "y": 260,
+        "wires": [
+            [
+                "9f3cde79ced59d2c"
+            ],
+            [
+                "de4e4d9bf90d2c6e"
+            ]
+        ]
+    },
+    {
+        "id": "9f3cde79ced59d2c",
+        "type": "change",
+        "z": "80b53015d5494bcc",
+        "name": "FAN-01 ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fan",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "fan.state",
+                "pt": "msg",
+                "to": "ON",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.actuator_id",
+                "pt": "msg",
+                "to": "FAN-01",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.zone",
+                "pt": "msg",
+                "to": "server_room",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.mode",
+                "pt": "msg",
+                "to": "auto",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "fan",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "5c3ca75efc4103d1",
+                "8e67d2fba082bea7"
+            ]
+        ]
+    },
+    {
+        "id": "de4e4d9bf90d2c6e",
+        "type": "change",
+        "z": "80b53015d5494bcc",
+        "name": "FAN-01 OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "fan",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "fan.state",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.actuator_id",
+                "pt": "msg",
+                "to": "FAN-01",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.zone",
+                "pt": "msg",
+                "to": "server_room",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.mode",
+                "pt": "msg",
+                "to": "auto",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "fan.timestamp",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "fan",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 300,
+        "wires": [
+            [
+                "5c3ca75efc4103d1",
+                "8e67d2fba082bea7"
+            ]
+        ]
+    },
+    {
+        "id": "5c3ca75efc4103d1",
+        "type": "http request",
+        "z": "80b53015d5494bcc",
+        "name": "FAN на CTRL",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.10.11:8080/api/actuators",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 860,
+        "y": 270,
+        "wires": [
+            [
+                "304619f22d2ff953"
+            ]
+        ]
+    },
+    {
+        "id": "304619f22d2ff953",
+        "type": "debug",
+        "z": "80b53015d5494bcc",
+        "name": "Ответ FAN",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1090,
+        "y": 270,
+        "wires": []
+    },
+    {
+        "id": "3af5fdad8643681a",
+        "type": "http request",
+        "z": "80b53015d5494bcc",
+        "name": "TEMP на DB",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.20.13:8081/api/readings",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 40,
+        "wires": [
+            [
+                "9acbcd40fefba673"
+            ]
+        ]
+    },
+    {
+        "id": "9acbcd40fefba673",
+        "type": "debug",
+        "z": "80b53015d5494bcc",
+        "name": "Ответ DB TEMP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 890,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e8bb21b6b98b2d18",
+        "type": "http request",
+        "z": "80b53015d5494bcc",
+        "name": "HUM на DB",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.20.13:8081/api/readings",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "8fc8b8c52fd077d5"
+            ]
+        ]
+    },
+    {
+        "id": "8fc8b8c52fd077d5",
+        "type": "debug",
+        "z": "80b53015d5494bcc",
+        "name": "Ответ DB HUM",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 890,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8e67d2fba082bea7",
+        "type": "http request",
+        "z": "80b53015d5494bcc",
+        "name": "FAN на DB",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.20.13:8081/api/actuators",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 860,
+        "y": 330,
+        "wires": [
+            [
+                "c3d3c4a24130cd2c"
+            ]
+        ]
+    },
+    {
+        "id": "c3d3c4a24130cd2c",
+        "type": "debug",
+        "z": "80b53015d5494bcc",
+        "name": "Ответ DB FAN",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1090,
+        "y": 330,
+        "wires": []
+    }
+]

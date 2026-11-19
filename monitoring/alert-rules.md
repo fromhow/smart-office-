@@ -1,6 +1,6 @@
 # Правила оповещения Grafana
 
-Полный экспорт группы правил: `alert-rules.yaml`. Экспорт панели: `dashboard_export.json` (исходная выданная панель – `dashboard_teacher.json`).
+Полный экспорт группы правил: `alert-rules.yaml`. Экспорт панели: `dashboard.json`.
 
 Все три правила лежат в папке `office`, группа `office-alerts`, интервал проверки 10 с, pending period 0 с. Тип правил – Grafana-managed, источник данных `Prometheus` (uid `prometheus-office`).
 

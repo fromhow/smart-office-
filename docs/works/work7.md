@@ -1,6 +1,6 @@
 # Prometheus и Grafana на MON
 
-MON-01 (192.168.20.12) собирает метрики приложения на CTRL-01 (192.168.10.11:8080). Prometheus и Grafana установлены как системные службы, Docker для мониторинга не используется. Файлы лежат в `practice7/`.
+MON-01 (192.168.20.12) собирает метрики приложения на CTRL-01 (192.168.10.11:8080). Prometheus и Grafana установлены как системные службы, Docker для мониторинга не используется. Файлы лежат в `ctrl/` и `monitoring/`.
 
 ## CTRL: приёмник версии 3
 
@@ -23,13 +23,13 @@ dnf install -y golang-github-prometheus grafana
 
 ## Prometheus
 
-Конфигурация `/etc/prometheus/prometheus.yml` (копия – `practice7/monitoring/prometheus.yml`): job `office-controller`, цель `192.168.10.11:8080`, путь `/metrics`, интервал 5 с, таймаут 4 с (меньше интервала). Проверка:
+Конфигурация `/etc/prometheus/prometheus.yml` (копия – `monitoring/prometheus.yml`): job `office-controller`, цель `192.168.10.11:8080`, путь `/metrics`, интервал 5 с, таймаут 4 с (меньше интервала). Проверка:
 
 ```
 promtool check config /etc/prometheus/prometheus.yml
 ```
 
-Служба `/etc/systemd/system/prometheus.service` (копия – `practice7/monitoring/prometheus.service`): бинарник `/usr/bin/prometheus`, пользователь `prometheus`, каталог данных `/var/lib/prometheus`.
+Служба `/etc/systemd/system/prometheus.service` (копия – `monitoring/prometheus.service`): бинарник `/usr/bin/prometheus`, пользователь `prometheus`, каталог данных `/var/lib/prometheus`.
 
 ```
 systemctl daemon-reload
@@ -45,7 +45,7 @@ systemctl is-active prometheus
 systemctl enable --now grafana-server
 ```
 
-Интерфейс: `http://192.168.20.12:3000`. Источник данных создан файлом provisioning `/etc/grafana/provisioning/datasources/datasource.yml` (копия – `practice7/monitoring/datasource.yml`), uid `prometheus-office`. Панель импортирована из `practice7/grafana/dashboard_teacher.json`.
+Интерфейс: `http://192.168.20.12:3000`. Источник данных создан файлом provisioning `/etc/grafana/provisioning/datasources/datasource.yml` (копия – `monitoring/datasource.yml`), uid `prometheus-office`. Панель импортирована из `monitoring/dashboard.json`.
 
 ## Проверка показателей
 
@@ -53,4 +53,4 @@ systemctl enable --now grafana-server
 
 ## Оповещения
 
-Описание правил – в `practice7/grafana/alert-rules.md`, экспорт – `practice7/grafana/alert-rules.yaml`, экспорт панели – `practice7/grafana/dashboard_export.json`. Почта: SMTP задан в секции `[smtp]` файла `/etc/grafana/grafana.ini` (в репозитории его нет), Contact point `email-admin`, тестовое письмо дошло до получателя.
+Описание правил – в `monitoring/alert-rules.md`, экспорт – `monitoring/alert-rules.yaml`, экспорт панели – `monitoring/dashboard.json`. Почта: SMTP задан в секции `[smtp]` файла `/etc/grafana/grafana.ini` (в репозитории его нет), Contact point `email-admin`, тестовое письмо дошло до получателя.

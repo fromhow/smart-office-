@@ -43,7 +43,7 @@ docker run -d --name nginx-test -p 8080:80 nginx
 docker rm -f nginx-test
 ```
 
-Через Docker Compose (`docker/compose.yml`):
+Через Docker Compose (`configs/nginx-test-compose.yml`):
 
 ```
 docker-compose up -d

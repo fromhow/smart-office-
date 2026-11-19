@@ -47,7 +47,7 @@
 - задал имена узлов CTRL-01, DB-01, IOT-01 и DNS колледжа (10.0.0.41, 10.0.0.42), без него не работал репозиторий пакетов;
 - установил Docker 24.0.9 и Docker Compose 2.11.2 на CTRL-01, DB-01 и IOT-01;
 - проверил SSH между серверами и передал тестовый файл с IOT-01 на CTRL-01 по SCP;
-- запустил тестовый Nginx на CTRL-01 сначала через `docker run`, затем через Docker Compose, добавил `docker/compose.yml`;
+- запустил тестовый Nginx на CTRL-01 сначала через `docker run`, затем через Docker Compose, добавил `configs/nginx-test-compose.yml`;
 - описал настройки в `configs/docker.md`.
 
 **Как проверил:**
@@ -65,7 +65,7 @@
 - на CTRL-01 запустил приёмник показаний через Docker Compose на порту 8080;
 - на IOT-01 поднял Node-RED через Docker Compose на порту 1880, интерфейс открывается на WIN-01;
 - в Node-RED создал два виртуальных датчика, температуры (TEMP-01) и влажности (HUM-01), с отправкой показаний каждые 5 секунд на приёмник (поля показания заданы отдельными правилами в узле change);
-- сохранил файлы в `practice4/`, настройки описал в `configs/practice4.md`.
+- сохранил файлы в репозитории (сейчас `ctrl/` и `iot/`), настройки описал в `docs/works/work4.md`.
 
 **Как проверил:**
 - на CTRL-01 `curl http://127.0.0.1:8080/health` вернул 200 и `{"status":"ok"}`, контейнер в статусе running (`evidence/33`, `34`);
@@ -84,7 +84,7 @@
 - на CTRL-01 заменил `receiver.js` на версию 2 (добавлен приём сигналов вентилятора на `/api/actuators`), `compose.yml` не менялся, контейнер пересоздал;
 - в Node-RED на IOT-01 собрал вентилятор FAN-01: показание TEMP-01 попадает в узел switch «TEMP-01 > 30 ?», дальше два отдельных узла change («FAN-01 ON» и «FAN-01 OFF») с правилами Set для `fan.state`, `fan.actuator_id`, `fan.zone`, `fan.mode`, затем http request на CTRL-01;
 - температуру задаю вручную числом в узле change датчика (35 для ON, 25 для OFF);
-- файлы сохранил в `practice5/`, настройки описал в `configs/practice5.md`.
+- файлы сохранил в репозитории (сейчас `ctrl/` и `iot/`), настройки описал в `docs/works/work5.md`.
 
 **Как проверил:**
 - на CTRL-01 `curl http://127.0.0.1:8080/health` вернул 200 и `"version":2` (`evidence/44`);
@@ -100,7 +100,7 @@
 - создал базу `data/telemetry.sqlite3` с таблицей `measurements` (по заданию) и таблицей `actuator_events` для вентилятора (столбцы `id, source, device_id, zone, timestamp, received_at, state, mode`);
 - запустил сервис хранения через Docker Compose на порту 8081;
 - в Node-RED показания TEMP-01, HUM-01 и сигналы FAN-01 теперь параллельно отправляются на CTRL (8080) и на DB (8081);
-- файлы сохранил в `practice6/`, настройки описал в `configs/practice6.md`, файл базы исключён в `.gitignore`.
+- файлы сохранил в репозитории (сейчас `db/` и `iot/`), настройки описал в `docs/works/work6.md`, файл базы исключён в `.gitignore`.
 
 **Как проверил:**
 - `curl http://127.0.0.1:8081/health` вернул 200, `storage: sqlite` (`evidence/58`);
@@ -117,9 +117,9 @@
 - на MON-01 установил Prometheus и Grafana как системные службы, включил автозапуск; перед установкой пришлось задать DNS-серверы, иначе `dnf` не находил репозиторий;
 - написал `prometheus.yml` (job `office-controller`, цель CTRL-01:8080, путь `/metrics`, интервал 5 с, таймаут 4 с), проверил `promtool check config`;
 - установил `prometheus.service` (бинарник `/usr/bin/prometheus`, пользователь `prometheus`, данные в `/var/lib/prometheus`);
-- создал источник данных Prometheus файлом provisioning с uid `prometheus-office`, импортировал панель `dashboard_teacher.json`;
+- создал источник данных Prometheus файлом provisioning с uid `prometheus-office`, импортировал выданную панель (сейчас в репозитории её экспорт `monitoring/dashboard.json`);
 - настроил SMTP в `grafana.ini` и Contact point `email-admin`, создал три правила оповещения (TEMP-01, HUM-01, CTRL) в группе `office-alerts` с интервалом 10 с;
-- файлы сохранил в `practice7/`, настройки описал в `configs/practice7.md`.
+- файлы сохранил в репозитории (сейчас `ctrl/` и `monitoring/`), настройки описал в `docs/works/work7.md`.
 
 **Как проверил:**
 - `/health` и `/metrics` на CTRL-01 отвечают, в метриках есть температура, влажность, режим, вентилятор и возраст показаний (`evidence/65`, `66`);
