@@ -53,4 +53,4 @@ systemctl enable --now grafana-server
 
 ## Оповещения
 
-Описание правил – в `practice7/grafana/alert-rules.md`. Почта: SMTP задан в секции `[smtp]` файла `/etc/grafana/grafana.ini` (в репозитории его нет), Contact point `email-admin`, тестовое письмо дошло до получателя.
+Описание правил – в `practice7/grafana/alert-rules.md`, экспорт – `practice7/grafana/alert-rules.yaml`, экспорт панели – `practice7/grafana/dashboard_export.json`. Почта: SMTP задан в секции `[smtp]` файла `/etc/grafana/grafana.ini` (в репозитории его нет), Contact point `email-admin`, тестовое письмо дошло до получателя.

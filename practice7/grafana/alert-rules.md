@@ -1,5 +1,7 @@
 # Правила оповещения Grafana
 
+Полный экспорт группы правил: `alert-rules.yaml`. Экспорт панели: `dashboard_export.json` (исходная выданная панель – `dashboard_teacher.json`).
+
 Все три правила лежат в папке `office`, группа `office-alerts`, интервал проверки 10 с, pending period 0 с. Тип правил – Grafana-managed, источник данных `Prometheus` (uid `prometheus-office`).
 
 Структура каждого правила: запрос A (Prometheus, режим Code, Instant) → B (Reduce, функция Last) → C (Threshold, условие тревоги).
@@ -26,7 +28,7 @@ C: IS ABOVE 20. No data → OK (Normal). Summary: «HUM-01 нет показан
 
 Условие `and on(job,instance) (up == 1)` оставляет значение только пока CTRL доступен. Если CTRL остановлен, запрос не возвращает данных и правила датчиков не срабатывают: остановка приложения не считается потерей датчика.
 
-## 3. CTRL недоступен
+## 3. CRTL недоступен
 
 Запрос A:
 
