@@ -137,6 +137,66 @@ table.t td.m{font-family:var(--fm);font-size:22px;color:#cfe}
 .edit-toggle{position:fixed;bottom:14px;left:14px;font:500 15px var(--fm);padding:8px 14px;border-radius:10px;border:1px solid var(--cy);background:rgba(7,11,22,.9);color:var(--cy);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:10001}
 .edit-toggle.show,.edit-toggle.active{opacity:1;pointer-events:auto}
 body.editing .ed{outline:1.5px dashed var(--mg);outline-offset:4px;cursor:text}
+
+/* ===== GNS3 / NODE-RED МАКЕТЫ ===== */
+.gns{position:absolute;left:80px;top:200px;width:1250px;height:840px;border-radius:12px;overflow:hidden;background:#e8ecef;border:1px solid #445;box-shadow:0 20px 70px rgba(0,0,0,.55)}
+.gns .bar{height:40px;background:#2a3140;color:#cdd6e6;font:500 18px var(--fb);display:flex;align-items:center;padding:0 16px;gap:18px}
+.gns .bar i{font-style:normal;color:#7e8aa3}
+.gns svg{display:block}
+#scheme .nd{cursor:pointer}#scheme .nd.info{cursor:default}
+#scheme .nd:hover .box{stroke:#1d57b0}
+#scheme .nd.off .box{stroke:#9aa3b2}#scheme .nd.off .ic{opacity:.45}
+.nrwin{position:absolute;left:80px;top:212px;width:1760px;height:820px;border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 20px 80px rgba(0,0,0,.6);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#333;border:1px solid #555;font-size:15px}
+.nrh{height:46px;background:#8c101c;display:flex;align-items:center;padding:0 16px;color:#fff;gap:16px}
+.nrh .logo{font-weight:700;font-size:20px;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+.nrh .logo b{display:inline-block;width:24px;height:24px;border-radius:5px;background:#fff;color:#8c101c;font-size:15px;line-height:24px;text-align:center}
+.nrh .sp{flex:1}
+.nrh .dep{background:#c92f2f;border:1px solid #e57373;border-radius:4px;color:#fff;font:600 16px inherit;font-family:inherit;padding:7px 18px;cursor:pointer;display:flex;gap:10px;align-items:center}
+.nrh .dep.dis{background:#6b2a30;border-color:#7d3a40;color:#c9a3a7;cursor:default}
+.nrh .menu{font-size:22px;opacity:.85}
+.nrt{height:36px;background:#e8e8e8;border-bottom:1px solid #ccc;display:flex;align-items:flex-end;padding-left:12px}
+.nrt span{background:#fff;border:1px solid #ccc;border-bottom:none;border-radius:4px 4px 0 0;padding:7px 26px 7px 14px;font-size:14px;margin-bottom:-1px;border-top:3px solid #c92f2f}
+.nrt span.o{background:#f0f0f0;border-top:3px solid #bbb;color:#888;margin-left:4px}
+.nrb{position:absolute;top:82px;left:0;right:0;bottom:0;display:flex}
+.nrc{flex:1;position:relative;background-color:#fff;background-image:linear-gradient(#f0f0f0 1px,transparent 1px),linear-gradient(90deg,#f0f0f0 1px,transparent 1px);background-size:20px 20px;overflow:hidden}
+.nrc svg{position:absolute;left:0;top:0}
+.nrc .nrn{cursor:pointer;user-select:none;-webkit-user-select:none}.nrc svg{user-select:none;-webkit-user-select:none}#scheme text{user-select:none}
+.nrs{width:400px;border-left:1px solid #ccc;background:#fff;display:flex;flex-direction:column}
+.nrs .tabs{display:flex;background:#f3f3f3;border-bottom:1px solid #ccc}
+.nrs .tabs span{padding:9px 16px;font-size:14px;color:#777}
+.nrs .tabs span.a{background:#fff;color:#333;border-bottom:2px solid #c92f2f;font-weight:600}
+.nrs .tool{display:flex;gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid #e3e3e3;font-size:13px;color:#555}
+.nrs .tool b{border:1px solid #bbb;border-radius:4px;padding:3px 10px;font-weight:400;background:#fafafa}
+.nrs .msgs{flex:1;overflow:hidden}
+.dm{padding:7px 12px 8px;border-bottom:1px solid #eee;border-left:4px solid #bbb;font-size:13px;line-height:1.35}
+.dm.e{border-left-color:#c92f2f;background:#fff5f5}
+.dm .dh{display:flex;justify-content:space-between;color:#888;font-size:12px}
+.dm .dh em{font-style:normal;color:#5a8bb8}
+.dm .dt{color:#555;margin-top:1px}
+.dm .dj{font:12.5px ui-monospace,Consolas,monospace;color:#333;margin-top:2px;white-space:pre-wrap;word-break:break-all}
+.dm .dj .k{color:#6a3e8c}.dm .dj .s{color:#2a6f2a}.dm .dj .n{color:#1456a8}
+.tray{position:absolute;top:0;right:0;bottom:0;width:640px;background:#f3f3f3;border-left:1px solid #bbb;box-shadow:-6px 0 30px rgba(0,0,0,.3);transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column}
+.tray.show{transform:none}
+.tray .th{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #ccc;background:#f3f3f3}
+.tray .th h5{margin:0;font-size:18px;font-weight:600;color:#333}
+.tray .th div{display:flex;gap:10px}
+.tray button.b{border:1px solid #aaa;background:#fff;border-radius:4px;padding:7px 20px;font:15px inherit;font-family:inherit;cursor:pointer;color:#333}
+.tray button.b.r{background:#a30000;border-color:#8c0000;color:#fff}
+.tray .tb{flex:1;padding:18px 20px;overflow:hidden}
+.tray .tf{height:56px;border-top:1px solid #ccc;display:flex;align-items:center;padding:0 16px;background:#f3f3f3}
+.tray .tg{border:1px solid #aaa;background:#fff;border-radius:4px;padding:6px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:14px}
+.tray .tg i{width:34px;height:18px;border-radius:10px;background:#5cb85c;position:relative;display:inline-block}
+.tray .tg i::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#fff}
+.tray .tg.off i{background:#bbb}.tray .tg.off i::after{right:auto;left:2px}
+.fr{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.fr label{width:110px;color:#555;font-size:14px;flex:none}
+.fr .v{flex:1;background:#fff;border:1px solid #bbb;border-radius:4px;padding:6px 10px;font-size:15px;min-height:34px;display:flex;align-items:center}
+.rl{display:flex;gap:6px;align-items:center;margin:0 0 8px;font-size:13.5px}
+.rl .p{background:#e9e9e9;border:1px solid #bbb;border-radius:4px;padding:5px 9px;white-space:nowrap;color:#444}
+.rl .f{background:#fff;border:1px solid #bbb;border-radius:4px;padding:5px 9px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:ui-monospace,Consolas,monospace;font-size:13px}
+.rl input{width:90px;padding:5px 8px;border:2px solid #c92f2f;border-radius:4px;font:600 15px ui-monospace,Consolas,monospace;background:#fffbe6}
+.toast{position:absolute;top:56px;left:50%;transform:translateX(-50%);background:#3a9a3a;color:#fff;padding:10px 26px;border-radius:5px;font-size:16px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:20}
+.toast.show{opacity:1}
 </style>
 </head>
 <body>
@@ -191,11 +251,10 @@ body.editing .ed{outline:1.5px dashed var(--mg);outline-offset:4px;cursor:text}
 
 <!-- ============ 3. СХЕМА ============ -->
 <section class="slide" data-title="Схема">
- <div class="hd"><span>03 / 10 · Схема стенда</span><span><b>●</b> живая модель</span></div>
+ <div class="hd"><span>03 / 10 · Схема стенда</span><span><b>●</b> топология GNS3</span></div>
  <h2 class="rv ed" style="--i:0">Как данные <em>идут по стенду</em></h2>
- <div class="area rv" style="--i:2;top:200px;height:840px">
-  <svg id="scheme" viewBox="0 0 1250 840" width="1250" height="800"></svg>
- </div>
+ <div class="gns rv" style="--i:2"><div class="bar"><b style="color:#fff">GNS3</b><i>smart-office</i><i>· топология стенда</i></div>
+  <svg id="scheme" viewBox="0 0 1250 800" width="1250" height="800"></svg></div>
  <div class="side rv" style="--i:3;top:200px"><div class="ctl pn" data-ctl></div></div>
 </section>
 
@@ -203,13 +262,8 @@ body.editing .ed{outline:1.5px dashed var(--mg);outline-offset:4px;cursor:text}
 <section class="slide" data-title="Node-RED">
  <div class="hd"><span>04 / 10 · IOT-01 · Node-RED</span><span><b>●</b> источник показаний</span></div>
  <h2 class="rv ed" style="--i:0">Датчики в <em>Node-RED</em></h2>
- <p class="sub rv ed" style="--i:1">Меняйте число в узле – как на стенде. Тумблер ⏱ отключает узел «каждые 5 с»</p>
- <div class="area" style="top:232px">
-  <div id="flow" style="position:absolute;left:0;top:0;width:1250px;height:410px" class="pn"></div>
-  <div class="pn" style="position:absolute;left:0;top:430px;width:610px;height:330px;padding:20px 24px"><div class="ctl-h">Запрос к CTRL <span>POST /api/readings</span></div><pre id="payload" class="mono" style="font-size:20px;line-height:1.5;color:#cfe"></pre></div>
-  <div class="pn" style="position:absolute;left:630px;top:430px;width:620px;height:330px;padding:20px 24px"><div class="ctl-h">Debug-окно <span>ответы CTRL и DB</span></div><div id="dbg" class="mono" style="font-size:20px;line-height:1.55"></div></div>
- </div>
- <div class="side rv" style="--i:3"><div class="ctl pn" data-ctl></div></div>
+ <p class="sub rv ed" style="--i:1">Поток IOT-01: показание каждые 5 с уходит на CTRL и в базу, команда вентилятора – по порогу 30 °C</p>
+ <div class="nrwin rv" style="--i:2" id="nrwin"></div>
 </section>
 
 <!-- ============ 5. ВЕНТИЛЯТОР ============ -->
@@ -332,7 +386,7 @@ const NS='http://www.w3.org/2000/svg';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const S={temp:35,hum:55,tOn:true,hOn:true,ctrl:true,db:true,speed:1,t:0,bootT:0,
  last:{'TEMP-01':null,'HUM-01':null},val:{'TEMP-01':null,'HUM-01':null},fan:null,
- rows:0,fanEv:0,lost:0,rowId:0,dbLog:[],sendLog:[],hist:[],fanLog:[],
+ rows:0,fanEv:0,lost:0,rowId:0,dbg:[],dbLog:[],sendLog:[],hist:[],fanLog:[],
  alert:{t:'ok',h:'ok',c:'ok'},sent:{t:false,h:false,c:false},pend:[],mails:[],lastPayload:null};
 const BASE=Date.now();
 const clock=t=>new Date(BASE+t*1000).toTimeString().slice(0,8);
@@ -342,19 +396,27 @@ const age=id=>S.t-(S.last[id]??S.bootT);
 
 /* ---- отправка показания (как узлы inject → change → http request) ---- */
 function send(id){
-  const v=id==='TEMP-01'?S.temp:r1(S.hum+(Math.random()-.5)*.8);
+  const v=id==='TEMP-01'?S.temp:r1(S.hum+(Math.random()-.5)*30);
   const unit=id==='TEMP-01'?'C':'%';
   const zone=id==='TEMP-01'?'server_room':'work_area';
   S.lastPayload={sensor_id:id,zone,unit,value:v,timestamp:new Date(BASE+S.t*1000).toISOString()};
   if(S.ctrl){S.last[id]=S.t;S.val[id]=v}
   if(S.db){S.rows++;S.dbLog.unshift({n:++S.rowId,t:S.t,dev:id,val:v+' '+unit})}else S.lost++;
   S.sendLog.unshift({t:S.t,txt:`${id} = ${v}`,c:S.ctrl?'200':'ECONNREFUSED',d:S.db?'ok':'ECONNREFUSED'});
+  const sn=id==='TEMP-01'?'TEMP':'HUM';
+  const J=o=>'{ '+Object.entries(o).map(([k,v])=>`<span class="k">${k}</span>: ${typeof v==='number'?`<span class="n">${v}</span>`:`<span class="s">"${v}"</span>`}`).join(', ')+' }';
+  const dg=(name,ok,okBody,err)=>S.dbg.unshift(ok?{t:S.t,name,body:J(okBody)}:{t:S.t,name,err:1,body:'Error: connect ECONNREFUSED '+err});
+  dg('Ответ '+sn,S.ctrl,{status:'ok',sensor_id:id,value:v},'192.168.10.11:8080');
+  dg('Ответ DB '+sn,S.db,{status:'stored'},'192.168.20.13:8081');
+  S.dbg.length=Math.min(S.dbg.length,40);
   packet('pIC','#00ffcc',!S.ctrl);packet('pID','#00ffcc',!S.db,150);
   if(id==='TEMP-01'){
     const want=v>30?'ON':'OFF';
     if(S.ctrl){const f=want==='ON'?1:0;if(S.fan!==f)S.fanLog.unshift({t:S.t,s:want,v});S.fan=f}
     if(S.db){S.fanEv++;S.dbLog.unshift({n:++S.rowId,t:S.t,dev:'FAN-01',val:want,fan:1})}else S.lost++;
     S.sendLog.unshift({t:S.t,txt:`FAN-01 ${want}`,c:S.ctrl?'200':'ECONNREFUSED',d:S.db?'ok':'ECONNREFUSED'});
+    dg('Ответ FAN',S.ctrl,{status:'ok',actuator_id:'FAN-01',state:want,mode:'auto'},'192.168.10.11:8080');
+    dg('Ответ DB FAN',S.db,{status:'stored'},'192.168.20.13:8081');
     packet('pIC','#ffb224',!S.ctrl,300);packet('pID','#ffb224',!S.db,450);
   }
   S.dbLog.length=Math.min(S.dbLog.length,30);S.sendLog.length=Math.min(S.sendLog.length,10);
@@ -463,80 +525,204 @@ function syncCtl(){
 }
 const fanTxt=()=>!S.ctrl?'нет связи':S.fan===null?'нет данных':S.fan?'ON':'OFF';
 
-/* --- слайд 3: схема --- */
-const NODES={
- IOT:{x:20,y:344,ip:'192.168.30.14',act:'iot'},CTRL:{x:950,y:70,ip:'192.168.10.11:8080',act:'ctrl'},
- DB:{x:950,y:560,ip:'192.168.20.13:8081',act:'db'},MON:{x:500,y:650,ip:'192.168.20.12',act:null},
- WIN:{x:500,y:40,ip:'192.168.10.10',act:null},MAIL:{x:20,y:650,ip:'mail.tm',act:null}};
+/* --- слайд 3: схема в стиле GNS3 --- */
+const GX=x=>50+1.5*x, GY=y=>46+1.15*y;
+const GN={
+ cloud:{n:'Cloud1',x:85,y:62,role:'Интернет · почта'},rtr:{n:'RTR',x:370,y:62,role:'маршрутизатор, NAT'},
+ sw:{n:'Switch1',x:378,y:255,role:''},
+ iot:{n:'REDOS8-1',x:55,y:260,role:'IOT-01',ip:'192.168.30.14',act:'iot'},
+ ctrl:{n:'REDOS8-2',x:68,y:497,role:'CTRL-01',ip:'192.168.10.11:8080',act:'ctrl'},
+ win:{n:'WindowsServer2019-1',x:378,y:513,role:'WIN-01',ip:'192.168.10.10'},
+ mon:{n:'REDOS8-3',x:725,y:270,role:'MON-01',ip:'192.168.20.12'},
+ db:{n:'REDOS8-4',x:735,y:478,role:'DB-01',ip:'192.168.20.13:8081',act:'db'}};
+const GL=[['cloud','eth0','rtr','e0'],['rtr','','sw',''],['iot','e0','sw','e1'],['ctrl','e0','sw','e2'],['win','e0','sw','e3'],['mon','e0','sw','e4'],['db','e0','sw','e5']];
+const gp=k=>[GX(GN[k].x),GY(GN[k].y)];
+const gpath=(...ks)=>ks.map((k,i)=>(i?'L':'M')+gp(k).map(v=>v.toFixed(0)).join(' ')).join('');
 function initScheme(){
   $('#scheme').innerHTML=`
-  <rect x="2" y="2" width="1246" height="836" rx="22" fill="none" stroke="rgba(0,255,204,.15)"/>
+  <rect width="1250" height="800" fill="#e8ecef"/>
   <g id="edges"></g>
   <g fill="none" stroke="none" opacity="0">
-   <path id="pIC" d="M220 400L600 400L950 140"/><path id="pID" d="M220 400L600 400L950 616"/>
-   <path id="pMC" d="M600 650L600 400L950 150"/><path id="pMM" d="M500 706L220 706"/></g>
+   <path id="pIC" d="${gpath('iot','sw','rtr','sw','ctrl')}"/><path id="pID" d="${gpath('iot','sw','rtr','sw','db')}"/>
+   <path id="pMC" d="${gpath('mon','sw','rtr','sw','ctrl')}"/><path id="pMM" d="${gpath('mon','sw','rtr','cloud')}"/></g>
   <g id="nodes"></g><g id="pk"></g>`;
 }
+const gIcon=k=>{
+  if(k==='cloud')return '<path d="M-22 10a12 12 0 0 1 2-23a16 16 0 0 1 30-3a13 13 0 0 1 12 26z" fill="none" stroke="#2e6bc4" stroke-width="4" stroke-linejoin="round"/>';
+  if(k==='sw')return '<g fill="none" stroke="#2e6bc4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M-22 -8H20M12 -16L20 -8L12 0"/><path d="M22 10H-20M-12 2L-20 10L-12 18"/></g>';
+  return '<g fill="none" stroke="#2e6bc4" stroke-width="4" stroke-linejoin="round"><rect x="-22" y="-22" width="44" height="32" rx="4"/><path d="M-10 18H10M0 10V18"/><path d="M0 -14L9 -9V1L0 6L-9 1V-9Z" fill="#2e6bc4" stroke-width="2"/></g>';
+};
 function renderScheme(){
-  const e=[['M234 400L600 400',S.tOn||S.hOn],['M600 400L950 140',S.ctrl],['M600 400L950 616',S.db],['M600 400L600 650',true],['M600 400L600 150',true],['M500 706L220 706',true]];
-  const alive=[1,S.ctrl,S.db,1,1,1];
-  $('#edges').innerHTML=e.map((x,i)=>`<path class="edge ${alive[i]?'':'dead'}" d="${x[0]}"/>`).join('')+
-   `<circle cx="600" cy="400" r="64" fill="#0a1426" stroke="#38bdf8" stroke-width="3"/><text x="600" y="396" text-anchor="middle" class="t1" style="font-size:30px">RTR</text><text x="600" y="426" text-anchor="middle" class="t2" style="font-size:17px">NAT</text>`+
-   `<text x="230" y="378" class="t2" style="font-size:17px" fill="#7fe9d2">POST /api/readings</text><text x="900" y="76" class="t2" style="font-size:16px;text-anchor:end" fill="#7fe9d2"></text>`+
-   `<text x="612" y="560" class="t2" style="font-size:17px" fill="#a78bfa">scrape /metrics 5 с</text>`+
-   `<text x="262" y="690" class="t2" style="font-size:17px" fill="#ff4fc3">SMTP</text>`+
-   `<text x="624" y="240" class="t2" style="font-size:17px" fill="#7fe9d2">Node-RED · Grafana · DB</text>`;
   const firing=['t','h','c'].filter(k=>S.alert[k]==='fire').length;
-  const info={
-   IOT:[`T ${S.temp.toFixed(1)}° · H ${S.hum}%`,S.tOn||S.hOn?`отправка: ${S.tOn?'T':''}${S.tOn&&S.hOn?'+':''}${S.hOn?'H':''}`:'отправка выкл',S.tOn||S.hOn],
-   CTRL:[S.ctrl?`FAN ${fanTxt()}`:'ОСТАНОВЛЕН',S.ctrl?`age T ${age('TEMP-01')} с`:'порт 8080 закрыт',S.ctrl],
-   DB:[S.db?`записей ${S.rows+S.fanEv}`:'ОСТАНОВЛЕНА',S.db?'SQLite пишет':`потеряно ${S.lost}`,S.db],
-   MON:[`цель ${S.ctrl?'UP':'DOWN'}`,`алертов: ${firing}`,true],
-   WIN:['браузер',':1880 :3000 :8081',true],
-   MAIL:[`писем: ${S.mails.length}`,'mail.tm',true]};
-  const sub={IOT:'IOT-01 · Node-RED',CTRL:'CTRL-01',DB:'DB-01',MON:'MON-01',WIN:'WIN-01',MAIL:'почта'};
-  $('#nodes').innerHTML=Object.entries(NODES).map(([k,n])=>{
-    const i=info[k],on=i[2];
-    return `<g class="nd ${on?'':'off'} ${n.act?'':'info'}" data-nd="${n.act||''}" transform="translate(${n.x},${n.y})">
-     <rect width="214" height="120" rx="22"/><circle cx="190" cy="26" r="8" fill="${on?'#3dff9a':'#ff4d6d'}"/>
-     <text x="18" y="38" class="t1" style="font-size:28px">${k==='MAIL'?'MAIL':k}</text>
-     <text x="18" y="62" class="t2" style="font-size:15.5px">${n.ip}</text>
-     <text x="18" y="86" class="t3" style="font-size:18px;fill:${on?'#eaf2ff':'#ff8da1'}">${i[0]}</text>
-     <text x="18" y="110" class="t2" style="font-size:15px;fill:#8fa0c0">${i[1]}</text></g>`}).join('');
-  $('#nodes').insertAdjacentHTML('beforeend','');
-  $$('#scheme text.t1').forEach(t=>{if(/^(IOT|CTRL|DB|MON|WIN|MAIL)$/.test(t.textContent)&&t.textContent!=='RTR'){}});
+  const st={
+   cloud:{on:true,l:[`писем: ${S.mails.length}`,'mail.tm · SMTP']},
+   rtr:{on:true,l:['шлюзы .10.1 .20.1 .30.1','']},
+   sw:{on:true,l:[]},
+   iot:{on:S.tOn||S.hOn,l:[`T ${S.temp.toFixed(1)}° · H ${S.hum}%`,S.tOn||S.hOn?`отправка: ${S.tOn?'T':''}${S.tOn&&S.hOn?'+':''}${S.hOn?'H':''}`:'отправка выкл']},
+   ctrl:{on:S.ctrl,l:[S.ctrl?`FAN ${fanTxt()} · age T ${age('TEMP-01')} с`:'ОСТАНОВЛЕН','']},
+   win:{on:true,l:['браузер','']},
+   mon:{on:true,l:[`цель ${S.ctrl?'UP':'DOWN'} · алертов: ${firing}`,'']},
+   db:{on:S.db,l:[S.db?`записей ${S.rows+S.fanEv}`:`ОСТАНОВЛЕНА · потеряно ${S.lost}`,'']}};
+  let e='';
+  GL.forEach(([a,pa,b2,pb])=>{
+    const [x1,y1]=gp(a),[x2,y2]=gp(b2);
+    e+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#111" stroke-width="2.5"/>`;
+    const pill=(x,y,t)=>t?`<g transform="translate(${x},${y})"><rect x="-${6+t.length*5.5}" y="-13" width="${12+t.length*11}" height="26" rx="13" fill="#fff" stroke="#34c26c" stroke-width="3"/><text text-anchor="middle" y="6" font-size="17" font-family="Arial" fill="#111">${t}</text></g>`:'';
+    const L=Math.hypot(x2-x1,y2-y1),ux=(x2-x1)/L,uy=(y2-y1)/L;
+    e+=pill(x1+ux*Math.min(88,L*.3),y1+uy*Math.min(88,L*.3),pa)+pill(x2-ux*Math.min(88,L*.3),y2-uy*Math.min(88,L*.3),pb);
+  });
+  $('#edges').innerHTML=e;
+  $('#nodes').innerHTML=Object.entries(GN).map(([k,n])=>{
+    const s=st[k],x=GX(n.x),y=GY(n.y),a=n.act||'';
+    const cap=[n.role,n.ip||'',...s.l].filter(Boolean);
+    return `<g class="nd ${s.on?'':'off'} ${a?'':'info'}" data-nd="${a}" transform="translate(${x},${y})">
+     <text y="-54" text-anchor="middle" font-size="21" font-weight="700" font-family="Arial" fill="#111" stroke="#e8ecef" stroke-width="6" paint-order="stroke">${n.n}</text>
+     <rect class="box" x="-40" y="-40" width="80" height="80" rx="13" fill="#fff" stroke="#2e6bc4" stroke-width="5"/>
+     <g class="ic">${gIcon(k==='cloud'?'cloud':k==='sw'?'sw':'vm')}</g>
+     <circle cx="30" cy="-30" r="6.5" fill="${s.on?'#2ecc71':'#e74c3c'}" stroke="#fff" stroke-width="2"/>
+     ${cap.map((t,i)=>`<text x="${k==='rtr'?54:0}" y="${k==='rtr'?-8+i*19:62+i*19}" text-anchor="${k==='rtr'?'start':'middle'}" font-size="${i===0?17:15}" font-family="${i===0?'Arial':'ui-monospace,Consolas,monospace'}" font-weight="${i===0?700:400}" fill="${!s.on&&i>0&&/ОСТАН/.test(t)?'#c0392b':i===0?'#1d57b0':'#444'}">${t}</text>`).join('')}</g>`}).join('');
 }
 
-/* --- слайд 4: Node-RED --- */
-function renderFlow(){
-  const rows=[
-   {y:34,id:'TEMP-01',on:S.tOn,mid:`Показание температуры<input type="number" step="0.5" min="15" max="45" data-num="temp" value="${S.temp}">`,sw:true},
-   {y:250,id:'HUM-01',on:S.hOn,mid:`Показание влажности<input type="number" step="1" min="20" max="90" data-num="hum" value="${S.hum}">`,sw:false}];
-  let h=`<div style="position:absolute;left:24px;top:-0px;font:600 20px var(--fm);color:var(--cy);padding-top:6px;letter-spacing:.1em">ПОТОК IOT-01</div>`;
-  const line=(x,y,w,c)=>`<div class="nrl" style="left:${x}px;top:${y}px;width:${w}px;${c?'background:'+c:''}"></div>`;
-  rows.forEach(r=>{
-    h+=`<div class="nr inj ${r.on?'':'offn'}" data-tg="${r.id==='TEMP-01'?'tOn':'hOn'}" style="left:24px;top:${r.y+20}px;cursor:pointer;width:310px"><span class="dot"></span>⏱ ${r.id} каждые 5 с</div>`;
-    h+=line(334,r.y+52,30);
-    h+=`<div class="nr chg" style="left:364px;top:${r.y+20}px;width:400px">${r.mid}</div>`;
-    h+=line(764,r.y+52,30);
-    if(r.sw){
-      const hot=S.temp>30;
-      h+=`<div class="nr sw2" style="left:794px;top:${r.y+20}px;width:230px">TEMP-01 &gt; 30 ?</div>`;
-      h+=line(1024,r.y+52,16);
-      h+=`<div class="nr chg" style="left:1040px;top:${r.y-26}px;width:196px;${hot?'':'opacity:.4'}">FAN-01 ON</div>`;
-      h+=`<div class="nr chg" style="left:1040px;top:${r.y+66}px;width:196px;${hot?'opacity:.4':''}">FAN-01 OFF</div>`;
-      h+=`<div class="status" style="left:794px;top:${r.y+92}px">${S.temp.toFixed(1)} ${hot?'>':'≤'} 30 → ${hot?'ON':'OFF'}</div>`;
-    }else{
-      h+=`<div class="nr http" style="left:794px;top:${r.y+20}px;width:290px">POST CTRL :8080</div>`;
-      h+=`<div class="status" style="left:794px;top:${r.y+92}px">и такой же POST на DB :8081</div>`;
+/* --- слайд 4: редактор Node-RED (по flows.json стенда) --- */
+const NRN=[{"id": "6a34c63ec750cc5e", "type": "inject", "name": "TEMP-01 каждые 5 с", "x": 170, "y": 80, "wires": [["7112f952471bd159"]], "url": "", "method": "", "rules": []}, {"id": "7112f952471bd159", "type": "change", "name": "Показание температуры", "x": 420, "y": 80, "wires": [["31980ba0ec11c04c", "3af5fdad8643681a", "57d7e56bff450f39"]], "url": "", "method": "", "rules": [{"t": "set", "p": "payload", "pt": "msg", "to": "{}", "tot": "json"}, {"t": "set", "p": "payload.sensor_id", "pt": "msg", "to": "TEMP-01", "tot": "str"}, {"t": "set", "p": "payload.zone", "pt": "msg", "to": "server_room", "tot": "str"}, {"t": "set", "p": "payload.unit", "pt": "msg", "to": "C", "tot": "str"}, {"t": "set", "p": "payload.value", "pt": "msg", "to": "35", "tot": "num"}, {"t": "set", "p": "payload.timestamp", "pt": "msg", "to": "", "tot": "date"}]}, {"id": "31980ba0ec11c04c", "type": "http request", "name": "TEMP на CTRL", "x": 670, "y": 80, "wires": [["a0f34d923c3f8944"]], "url": "http://192.168.10.11:8080/api/readings", "method": "POST", "rules": []}, {"id": "a0f34d923c3f8944", "type": "debug", "name": "Ответ TEMP", "x": 890, "y": 80, "wires": [], "url": "", "method": "", "rules": []}, {"id": "d0f2341198f66068", "type": "inject", "name": "HUM-01 каждые 5 с", "x": 170, "y": 160, "wires": [["b7c439e4027bd41d"]], "url": "", "method": "", "rules": []}, {"id": "b7c439e4027bd41d", "type": "change", "name": "Показание влажности", "x": 420, "y": 160, "wires": [["54ec1bc2a8888c34", "e8bb21b6b98b2d18"]], "url": "", "method": "", "rules": [{"t": "set", "p": "payload", "pt": "msg", "to": "{}", "tot": "json"}, {"t": "set", "p": "payload.sensor_id", "pt": "msg", "to": "HUM-01", "tot": "str"}, {"t": "set", "p": "payload.zone", "pt": "msg", "to": "work_area", "tot": "str"}, {"t": "set", "p": "payload.unit", "pt": "msg", "to": "%", "tot": "str"}, {"t": "set", "p": "payload.value", "pt": "msg", "to": "$round($random()*30+40,1)", "tot": "jsonata"}, {"t": "set", "p": "payload.timestamp", "pt": "msg", "to": "", "tot": "date"}]}, {"id": "54ec1bc2a8888c34", "type": "http request", "name": "HUM на CTRL", "x": 670, "y": 160, "wires": [["0f04c8e410532b11"]], "url": "http://192.168.10.11:8080/api/readings", "method": "POST", "rules": []}, {"id": "0f04c8e410532b11", "type": "debug", "name": "Ответ HUM", "x": 890, "y": 160, "wires": [], "url": "", "method": "", "rules": []}, {"id": "57d7e56bff450f39", "type": "switch", "name": "TEMP-01 > 30 ?", "x": 420, "y": 260, "wires": [["9f3cde79ced59d2c"], ["de4e4d9bf90d2c6e"]], "url": "", "method": "", "rules": [{"t": "gt", "v": "30", "vt": "num"}, {"t": "lte", "v": "30", "vt": "num"}]}, {"id": "9f3cde79ced59d2c", "type": "change", "name": "FAN-01 ON", "x": 620, "y": 240, "wires": [["5c3ca75efc4103d1", "8e67d2fba082bea7"]], "url": "", "method": "", "rules": [{"t": "set", "p": "fan", "pt": "msg", "to": "{}", "tot": "json"}, {"t": "set", "p": "fan.state", "pt": "msg", "to": "ON", "tot": "str"}, {"t": "set", "p": "fan.actuator_id", "pt": "msg", "to": "FAN-01", "tot": "str"}, {"t": "set", "p": "fan.zone", "pt": "msg", "to": "server_room", "tot": "str"}, {"t": "set", "p": "fan.mode", "pt": "msg", "to": "auto", "tot": "str"}, {"t": "set", "p": "fan.timestamp", "pt": "msg", "to": "", "tot": "date"}, {"t": "set", "p": "payload", "pt": "msg", "to": "fan", "tot": "msg"}]}, {"id": "de4e4d9bf90d2c6e", "type": "change", "name": "FAN-01 OFF", "x": 620, "y": 300, "wires": [["5c3ca75efc4103d1", "8e67d2fba082bea7"]], "url": "", "method": "", "rules": [{"t": "set", "p": "fan", "pt": "msg", "to": "{}", "tot": "json"}, {"t": "set", "p": "fan.state", "pt": "msg", "to": "OFF", "tot": "str"}, {"t": "set", "p": "fan.actuator_id", "pt": "msg", "to": "FAN-01", "tot": "str"}, {"t": "set", "p": "fan.zone", "pt": "msg", "to": "server_room", "tot": "str"}, {"t": "set", "p": "fan.mode", "pt": "msg", "to": "auto", "tot": "str"}, {"t": "set", "p": "fan.timestamp", "pt": "msg", "to": "", "tot": "date"}, {"t": "set", "p": "payload", "pt": "msg", "to": "fan", "tot": "msg"}]}, {"id": "5c3ca75efc4103d1", "type": "http request", "name": "FAN на CTRL", "x": 860, "y": 270, "wires": [["304619f22d2ff953"]], "url": "http://192.168.10.11:8080/api/actuators", "method": "POST", "rules": []}, {"id": "304619f22d2ff953", "type": "debug", "name": "Ответ FAN", "x": 1090, "y": 270, "wires": [], "url": "", "method": "", "rules": []}, {"id": "3af5fdad8643681a", "type": "http request", "name": "TEMP на DB", "x": 670, "y": 40, "wires": [["9acbcd40fefba673"]], "url": "http://192.168.20.13:8081/api/readings", "method": "POST", "rules": []}, {"id": "9acbcd40fefba673", "type": "debug", "name": "Ответ DB TEMP", "x": 890, "y": 40, "wires": [], "url": "", "method": "", "rules": []}, {"id": "e8bb21b6b98b2d18", "type": "http request", "name": "HUM на DB", "x": 670, "y": 200, "wires": [["8fc8b8c52fd077d5"]], "url": "http://192.168.20.13:8081/api/readings", "method": "POST", "rules": []}, {"id": "8fc8b8c52fd077d5", "type": "debug", "name": "Ответ DB HUM", "x": 890, "y": 200, "wires": [], "url": "", "method": "", "rules": []}, {"id": "8e67d2fba082bea7", "type": "http request", "name": "FAN на DB", "x": 860, "y": 330, "wires": [["c3d3c4a24130cd2c"]], "url": "http://192.168.20.13:8081/api/actuators", "method": "POST", "rules": []}, {"id": "c3d3c4a24130cd2c", "type": "debug", "name": "Ответ DB FAN", "x": 1090, "y": 330, "wires": [], "url": "", "method": "", "rules": []}];
+const NR_COL={inject:'#a6bbcf',change:'#e2d96e',switch:'#e2d96e','http request':'#e7e7ae',debug:'#87a980'};
+const NR={sel:null,tray:null,pend:{},toast:null};
+const nrCtx=document.createElement('canvas').getContext('2d');nrCtx.font='14px "Helvetica Neue",Helvetica,Arial,sans-serif';
+NRN.forEach(n=>{
+  n.lab=n.name+(n.type==='inject'?' ↻':'');
+  n.w=Math.max(100,20*Math.ceil((nrCtx.measureText(n.lab).width+50)/20));
+  n.outs=n.type==='debug'?0:n.type==='switch'?2:1;
+});
+const nrById=id=>NRN.find(n=>n.id===id);
+const nrByName=nm=>NRN.find(n=>n.name===nm);
+const nrEn=k=>NR.pend[k]!==undefined?NR.pend[k]:S[k];
+function nrDirty(){return Object.keys(NR.pend).some(k=>NR.pend[k]!==S[k])}
+function initNR(){
+  const w=$('#nrwin');
+  w.innerHTML=`
+  <div class="nrh"><span class="logo"><b>⇄</b>Node-RED</span><span class="sp"></span><button class="dep dis" id="nrDep">Deploy ▾</button><span class="menu">☰</span></div>
+  <div class="nrt"><span>Датчики офиса</span><span class="o">Flow 2</span></div>
+  <div class="nrb">
+   <div class="nrc" id="nrc"></div>
+   <div class="nrs"><div class="tabs"><span>info</span><span>help</span><span class="a">debug</span><span>config</span></div>
+    <div class="tool"><b>все узлы ▾</b><b>очистить</b></div><div class="msgs" id="nrMsgs"></div></div>
+   <div class="tray" id="nrTray"></div>
+  </div><div class="toast" id="nrToast">Successfully deployed</div>`;
+  // геометрия канваса
+  const cw=1360,ch=738;
+  const ex0=Math.min(...NRN.map(n=>n.x-n.w/2))-34,ex1=Math.max(...NRN.map(n=>n.x+n.w/2))+34;
+  const ey0=Math.min(...NRN.map(n=>n.y))-28,ey1=Math.max(...NRN.map(n=>n.y))+44;
+  const sc=Math.min(cw/(ex1-ex0),ch/(ey1-ey0));
+  NR.tf=`translate(${(cw-(ex1-ex0)*sc)/2-ex0*sc},${(ch-(ey1-ey0)*sc)/2-ey0*sc+14}) scale(${sc})`;
+  w.onclick=e=>{
+    const dep=e.target.closest('#nrDep');if(dep){nrDeploy();return}
+    const inj=e.target.closest('[data-inj]');if(inj){nrInject(inj.dataset.inj);return}
+    const cl=e.target.closest('#nrCancel');if(cl){nrClose(false);return}
+    const dn=e.target.closest('#nrDone');if(dn){nrClose(true);return}
+    const tg=e.target.closest('#nrTg');if(tg){NR.tray.en=!NR.tray.en;nrTray();return}
+    const nd=e.target.closest('.nrn');
+    if(nd)nrSelect(nd.dataset.id);else if(e.target.closest('#nrc'))nrSelect(null);
+  };
+  w.ondblclick=e=>{const nd=e.target.closest('.nrn');if(nd&&!e.target.closest('[data-inj]'))nrOpen(nd.dataset.id)};
+  w.oninput=e=>{if(e.target.id==='nrVal'&&NR.tray)NR.tray.val=Math.max(-50,Math.min(120,+e.target.value||0))};
+  updateNR();
+}
+function nrSelect(id){NR.sel=id;$$('#nrc .nrn').forEach(g=>{const r=$('.nb',g),on=g.dataset.id===id;r.setAttribute('stroke',on?'#ff7f0e':'rgba(0,0,0,.35)');r.setAttribute('stroke-width',on?3:1)})}
+function nrDeploy(){
+  if(!nrDirty())return;
+  ['tOn','hOn'].forEach(k=>{if(NR.pend[k]!==undefined)S[k]=NR.pend[k]});
+  if(NR.pend.temp!==undefined){S.temp=NR.pend.temp;pushValue('TEMP-01')}
+  NR.pend={};evalAlerts();
+  const t=$('#nrToast');t.classList.add('show');clearTimeout(NR.toast);NR.toast=setTimeout(()=>t.classList.remove('show'),1800);
+  render();
+}
+function nrInject(name){
+  if(!(name==='TEMP-01'?nrEn('tOn'):nrEn('hOn')))return;
+  if(NR.pend.tOn!==undefined||NR.pend.hOn!==undefined||NR.pend.temp!==undefined){}
+  send(name);render();
+}
+function nrOpen(id){
+  const n=nrById(id);NR.sel=id;
+  NR.tray={id,en:n.type==='inject'?nrEn(n.name.startsWith('TEMP')?'tOn':'hOn'):true,val:(NR.pend.temp!==undefined?NR.pend.temp:S.temp)};
+  nrTray();$('#nrTray').classList.add('show');updateNR();
+}
+function nrClose(ok){
+  const t=NR.tray;if(t&&ok){
+    const n=nrById(t.id);
+    if(n.type==='inject'){const k=n.name.startsWith('TEMP')?'tOn':'hOn';if(t.en!==S[k])NR.pend[k]=t.en;else delete NR.pend[k]}
+    if(n.name==='Показание температуры'){if(t.val!==S.temp)NR.pend.temp=t.val;else delete NR.pend.temp}
+  }
+  NR.tray=null;$('#nrTray').classList.remove('show');updateNR();
+}
+function nrTray(){
+  const t=NR.tray;if(!t)return;const n=nrById(t.id);
+  const rule=(a,b,c,d,edit)=>`<div class="rl"><span class="p">${a}</span><span class="p">${b}</span><span class="p">${c}</span>${edit?edit:`<span class="f">${d}</span>`}</div>`;
+  let body='',foot='';
+  const name=`<div class="fr"><label>Имя</label><div class="v">${n.name}</div></div>`;
+  if(n.type==='inject'){
+    body=name+`<div class="fr"><label>msg.payload</label><div class="v">⏱ timestamp</div></div><div class="fr"><label>Повтор</label><div class="v">интервал каждые 5 секунд</div></div><div class="fr"><label></label><div class="v" style="border:0;background:none">☑ Inject once after 0.1 seconds, then at interval</div></div>`;
+    foot=`<div class="tg ${t.en?'':'off'}" id="nrTg"><i></i>${t.en?'Enabled':'Disabled'}</div>`;
+  }else if(n.type==='change'&&/^Показание/.test(n.name)){
+    const isT=n.name==='Показание температуры';
+    body=name+`<div class="fr"><label>Правила</label></div>`+
+     rule('Set','msg.payload','to','{}  (JSON)')+rule('Set','msg.payload.sensor_id','to',isT?'abc  TEMP-01':'abc  HUM-01')+
+     rule('Set','msg.payload.zone','to',isT?'abc  server_room':'abc  work_area')+rule('Set','msg.payload.unit','to',isT?'abc  C':'abc  %')+
+     (isT?rule('Set','msg.payload.value','to','',`<span class="p">123</span><input id="nrVal" type="number" step="1" value="${t.val}">`)
+         :rule('Set','msg.payload.value','to','J: $round($random()*30+40,1)'))+
+     rule('Set','msg.payload.timestamp','to','timestamp');
+  }else if(n.type==='change'){
+    body=name+`<div class="fr"><label>Правила</label></div>`+rule('Set','msg.fan','to','{}  (JSON)')+rule('Set','msg.fan.state','to','abc  '+n.name.slice(-2).replace('N','ON').trim())+rule('Set','msg.fan.actuator_id','to','abc  FAN-01')+rule('Set','msg.fan.zone','to','abc  server_room')+rule('Set','msg.fan.mode','to','abc  auto')+rule('Set','msg.fan.timestamp','to','timestamp')+rule('Set','msg.payload','to','msg.  fan');
+  }else if(n.type==='switch'){
+    body=name+`<div class="fr"><label>Свойство</label><div class="v">msg.payload</div></div>`+rule('1','>','','30  (число)')+rule('2','≤','','30  (число)');
+  }else if(n.type==='http request'){
+    body=name+`<div class="fr"><label>Метод</label><div class="v">POST</div></div><div class="fr"><label>URL</label><div class="v mono" style="font:14px ui-monospace,Consolas,monospace">${n.url}</div></div><div class="fr"><label>Вернуть</label><div class="v">распознанный объект JSON</div></div>`;
+  }else{
+    body=name+`<div class="fr"><label>Вывод</label><div class="v">msg.payload</div></div><div class="fr"><label>В</label><div class="v">☑ debug window</div></div>`;
+  }
+  const ttl={inject:'inject',change:'change',switch:'switch','http request':'http request',debug:'debug'}[n.type];
+  $('#nrTray').innerHTML=`<div class="th"><h5>Edit ${ttl} node</h5><div><button class="b" id="nrCancel">Cancel</button><button class="b r" id="nrDone">Done</button></div></div><div class="tb">${body}</div><div class="tf">${foot}</div>`;
+}
+function updateNR(){
+  const c=$('#nrc');if(!c)return;
+  const dep=$('#nrDep');dep.classList.toggle('dis',!nrDirty());
+  const sig=[nrEn('tOn'),nrEn('hOn'),S.ctrl,S.db,S.rows+S.fanEv+S.lost>0].join();
+  const msig=S.dbg.length+'|'+(S.dbg[0]?S.dbg[0].t+S.dbg[0].name+S.dbg[0].body:'');
+  if(NR.msig!==msig){NR.msig=msig;nrMsgs()}
+  if(NR.sig===sig&&c.firstChild)return;NR.sig=sig;
+  const color=n=>NR_COL[n.type];
+  const ow=(n,i)=>[n.x+n.w/2,n.y+(n.outs===2?(i?6.5:-6.5):0)];
+  let wires='',nodes='';
+  NRN.forEach(n=>(n.wires||[]).forEach((tg,oi)=>tg.forEach(tid=>{
+    const m=nrById(tid),[x1,y1]=ow(n,oi),x2=m.x-m.w/2,y2=m.y;
+    const dx=x2-x1,d=dx>0?Math.max(40,Math.min(dx*.55,130)):Math.max(90,Math.min(-dx*.5+60,160));
+    wires+=`<path d="M${x1} ${y1}C${x1+d} ${y1} ${x2-d} ${y2} ${x2} ${y2}" fill="none" stroke="#999" stroke-width="3"/>`;
+  })));
+  const ctrlSt=S.ctrl?['#5cb85c','200']:['#d33','ECONNREFUSED'],dbSt=S.db?['#5cb85c','200']:['#d33','ECONNREFUSED'];
+  NRN.forEach(n=>{
+    const dis=(n.type==='inject')&&!nrEn(n.name.startsWith('TEMP')?'tOn':'hOn');
+    const x0=n.x-n.w/2,y0=n.y-15;
+    const sel=NR.sel===n.id;
+    let g=`<g class="nrn" data-id="${n.id}"${dis?' opacity=".7"':''}>`;
+    if(n.type==='inject'){
+      const nm=n.name.startsWith('TEMP')?'TEMP-01':'HUM-01';
+      g+=`<g data-inj="${nm}" style="cursor:pointer"><rect x="${x0-26}" y="${n.y-13}" width="26" height="26" rx="4" fill="${color(n)}" stroke="#7d8e9e"/><rect x="${x0-21}" y="${n.y-8}" width="16" height="16" rx="2" fill="#e9eef3" stroke="#7d8e9e"/></g>`;
     }
+    g+=`<rect class="nb" x="${x0}" y="${y0}" width="${n.w}" height="30" rx="5" fill="${color(n)}" stroke="${sel?'#ff7f0e':'rgba(0,0,0,.35)'}" stroke-width="${sel?3:1}"/>`;
+    g+=`<rect x="${x0}" y="${y0}" width="30" height="30" rx="5" fill="rgba(0,0,0,.08)"/>`;
+    const ic={inject:'➔',change:'⇄',switch:'⑂','http request':'☁',debug:''}[n.type];
+    if(n.type==='debug')g+=`<g fill="#fff" opacity=".95"><rect x="${x0+n.w-24}" y="${n.y-7}" width="14" height="2.5"/><rect x="${x0+n.w-24}" y="${n.y-1}" width="14" height="2.5"/><rect x="${x0+n.w-24}" y="${n.y+5}" width="14" height="2.5"/></g><rect x="${x0+n.w+4}" y="${n.y-10}" width="20" height="20" rx="3" fill="#87a980" stroke="rgba(0,0,0,.35)"/>`;
+    else g+=`<text x="${x0+15}" y="${n.y+6}" text-anchor="middle" font-size="16" fill="#fff" font-family="Arial" stroke="rgba(0,0,0,.25)" stroke-width=".4">${ic}</text>`;
+    g+=`<text x="${x0+(n.type==='debug'?12:40)}" y="${n.y+5}" font-size="14" font-style="italic" fill="#222" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">${n.lab}</text>`;
+    if(n.type!=='inject')g+=`<rect x="${x0-5}" y="${n.y-5}" width="10" height="10" rx="2" fill="#d9d9d9" stroke="#999"/>`;
+    for(let i=0;i<n.outs;i++){const [px,py]=ow(n,i);g+=`<rect x="${px-5}" y="${py-5}" width="10" height="10" rx="2" fill="#d9d9d9" stroke="#999"/>`}
+    if(dis)g+=`<rect x="${x0}" y="${y0}" width="${n.w}" height="30" rx="5" fill="url(#nrHatch)" pointer-events="none"/>`;
+    if(n.type==='http request'){const s=n.name.includes('DB')?dbSt:ctrlSt;g+=`<circle cx="${x0+8}" cy="${n.y+24}" r="4.5" fill="${s[0]}"/><text x="${x0+17}" y="${n.y+28}" font-size="11.5" fill="#666" font-family="Helvetica Neue,Helvetica,Arial,sans-serif">${S.rows+S.fanEv+S.lost>0?s[1]:'—'}</text>`}
+    g+='</g>';nodes+=g;
   });
-  h+=`<div class="status" style="left:30px;top:${34+92}px">${S.tOn?'работает':'ОТКЛЮЧЁН – показания не идут'}</div><div class="status" style="left:30px;top:${250+92}px">${S.hOn?'работает':'ОТКЛЮЧЁН – показания не идут'}</div>`;
-  h+=`<div class="status" style="left:364px;top:${34+92}px;color:#e2d96e">меняйте число – как в Node-RED</div>`;
-  const el=$('#flow');
-  if(!el.contains(document.activeElement)||document.activeElement.tagName!=='INPUT')el.innerHTML=h;
-  $('#payload').innerHTML=S.lastPayload?JSON.stringify(S.lastPayload,null,2).replace(/"value": ([\d.]+)/,'"value": <b style="color:var(--am)">$1</b>'):'ожидание первого показания…';
-  $('#dbg').innerHTML=S.sendLog.slice(0,7).map(l=>`<div><span style="color:#62709a">${clock(l.t)}</span> ${l.txt} · CTRL <span style="color:${l.c==='200'?'var(--gn)':'var(--rd)'}">${l.c}</span> · DB <span style="color:${l.d==='ok'?'var(--gn)':'var(--rd)'}">${l.d}</span></div>`).join('')||'пока пусто';
+  c.innerHTML=`<svg width="1360" height="750" viewBox="0 0 1360 750"><defs><pattern id="nrHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="8" fill="rgba(255,255,255,.45)"/></pattern></defs><g transform="${NR.tf}">${wires}${nodes}</g></svg>`;
+}
+function nrMsgs(){
+  $('#nrMsgs').innerHTML=S.dbg.slice(0,11).map(m=>`<div class="dm ${m.err?'e':''}"><div class="dh"><span>${clock(m.t)}</span><em>${m.err?'node: '+m.name:'node: '+m.name}</em></div><div class="dt">${m.err?'error':'msg.payload : Object'}</div><div class="dj">${m.body}</div></div>`).join('')||'<div class="dm"><div class="dt" style="color:#999">Нет сообщений</div></div>';
 }
 
 /* --- слайд 5: вентилятор --- */
@@ -618,7 +804,7 @@ function renderAlerts(){
 
 function render(){
   syncCtl();
-  if(cur===2)renderScheme();else if(cur===3)renderFlow();else if(cur===4)renderFan();
+  if(cur===2)renderScheme();else if(cur===3)updateNR();else if(cur===4)renderFan();
   else if(cur===5)renderDB();else if(cur===6)renderGraf();else if(cur===7)renderAlerts();
 }
 
@@ -664,7 +850,7 @@ class SlidePresentation{
 
 /* ---- запуск ---- */
 $$('[data-ctl]').forEach(c=>c.innerHTML=ctlHTML());
-initScheme();
+initScheme();initNR();
 for(let i=0;i<60;i++)tick(true);          // «прогрев»: график не пустой с первой секунды
 S.mails=[];S.pend=[];S.sent={t:false,h:false,c:false};
 new SlidePresentation();startTimer();
