@@ -79,7 +79,7 @@ Prometheus ──► Grafana (панель, правила) ──► письм
 | `db/` | DB-01: сервис хранения (`server.py`, `index.html`, `inspect_db.py`), `compose.yml`, `init.sql` (создание таблиц), `queries.sql` (запросы проверки) |
 | `monitoring/` | MON-01: `prometheus.yml`, `prometheus.service`, `datasource.yml`, `dashboard.json` (экспорт панели), `alert-rules.yaml` (экспорт правил) и `alert-rules.md` |
 | `configs/` | настройки сети и вспомогательные файлы: RTR, таблица узлов, установка Docker |
-| `docs/` | таблица адресации, план офиса, описание настройки по работам (`docs/works/`) |
+| `docs/` | инструкция заказчику (`Инструкция_заказчику.docx` и `.pdf`), журнал работ и испытаний (`test-journal.md`), таблица адресации, план офиса, описание настройки по работам (`docs/works/`) |
 | `schemes/` | логическая схема сети |
 | `evidence/` | снимки экрана проверок по номерам |
 | `journal.md` | журнал работ по дням |
